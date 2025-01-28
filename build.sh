@@ -5,7 +5,7 @@ FFMPEG_KIT_TAG="min.v5.1.2.6"
 FFMPEG_KIT_CHECKOUT="origin/develop"
 #FFMPEG_KIT_CHECKOUT="origin/tags/$FFMPEG_KIT_TAG"
 
-FFMPEG_KIT_REPO="https://github.com/tylerjonesio/ffmpeg-kit"
+FFMPEG_KIT_REPO="https://github.com/davidmoore1/ffmpeg-kit"
 WORK_DIR=".tmp/ffmpeg-kit"
 
 if [[ ! -d $WORK_DIR ]]; then
