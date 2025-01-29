@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-FFMPEG_KIT_TAG="v5.1.3"
+FFMPEG_KIT_TAG="min.v5.1.3.1"
 FFMPEG_KIT_CHECKOUT="origin/develop"
 #FFMPEG_KIT_CHECKOUT="origin/tags/$FFMPEG_KIT_TAG"
 
@@ -26,7 +26,8 @@ echo "Install build dependencies..."
 brew install autoconf automake libtool pkg-config curl git doxygen nasm bison wget gettext gh
 
 echo "Building for iOS..."
-./ios.sh --enable-ios-audiotoolbox --enable-ios-avfoundation --enable-ios-videotoolbox --enable-ios-zlib --enable-ios-bzip2 --enable-ios-libiconv --no-bitcode --enable-gmp --enable-gnutls -x
+#./ios.sh --enable-ios-audiotoolbox --enable-ios-avfoundation --enable-ios-videotoolbox --enable-ios-zlib --enable-ios-bzip2 --enable-ios-libiconv --no-bitcode --enable-gmp --enable-gnutls -x
+./ios.sh --xcframework --enable-ios-audiotoolbox --enable-ios-avfoundation --enable-ios-bzip2 --enable-ios-libiconv --enable-ios-videotoolbox --enable-ios-zlib --enable-chromaprint --enable-dav1d --enable-fontconfig --enable-freetype --enable-fribidi --enable-gmp  --enable-kvazaar --enable-lame --enable-libaom --enable-libass --enable-libilbc --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libxml2 --enable-opencore-amr --enable-openh264 --enable-opus --enable-sdl --enable-shine --enable-snappy --enable-soxr --enable-speex --enable-srt --enable-tesseract --enable-twolame --enable-vo-amrwbenc --enable-zimg --no-bitcode -x
 echo "Building for tvOS..."
 #./tvos.sh --enable-tvos-audiotoolbox --enable-tvos-videotoolbox --enable-tvos-zlib --enable-tvos-bzip2 --no-bitcode --enable-gmp --enable-gnutls -x
 echo "Building for macOS..."
@@ -35,7 +36,7 @@ echo "Building for watchOS..."
 #./watchos.sh --enable-watchos-zlib --enable-watchos-bzip2 --no-bitcode --enable-gmp --enable-gnutls -x
 
 echo "Bundling final XCFramework"
-./apple.sh --disable-macosx --disable-appletvos --disable-appletvsimulator 
+./apple.sh --disable-appletvos --disable-appletvsimulator --disable-macosx
 
 cd ../../
 
